@@ -73,8 +73,8 @@ public class Knight extends Sprite {
 
     public Knight(PlayScreen screen){
         //test
-        Health = 100;        // Giá trị khởi tạo cho sức khỏe hiện tại
-        HealthMax = 100;
+        Health = 200;        // Giá trị khởi tạo cho sức khỏe hiện tại
+        HealthMax = 200;
 
         this.world = screen.getWorld();
         currentState = State.STANDING;
@@ -217,8 +217,11 @@ public class Knight extends Sprite {
 
     public void buff(){
         // test
-        if(Health != 100){
-            Health +=90;
+        if(Health != 200){
+            Health +=200;
+            if (Health > HealthMax) {
+                Health = HealthMax; // Giới hạn Health không vượt quá HealthMax
+            }
         }
         System.out.println("Bufffffffffff");
 
@@ -226,8 +229,11 @@ public class Knight extends Sprite {
     }
     public void buff1(){
         // test
-        if(Health != 100){
+        if(Health != 200){
             Health +=10;
+        }
+        if (Health > HealthMax) {
+            Health = HealthMax; // Giới hạn Health không vượt quá HealthMax
         }
         System.out.println("Bufffffffffff");
 

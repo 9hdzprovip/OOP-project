@@ -1,6 +1,7 @@
 package com.projectoop.game.sprites.effectedObject;
 
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -30,6 +31,9 @@ public class Chest1 extends EffectedObject {
     private Sound chestOpeningSound;
 
     private boolean spawnItem;
+    //test
+    private Texture usedTexture;
+    private Texture notuseTexture;
 
     public Chest1(PlayScreen screen, float x, float y) {
         super(screen, x, y);
@@ -64,10 +68,15 @@ public class Chest1 extends EffectedObject {
 
     @Override
     protected void prepareAnimation() {
-        atlasOpenChest = new TextureAtlas("Chest/Chest.pack");
-        chestOpening = new Animation<TextureRegion>(0.5f, atlasOpenChest.getRegions());
-        usedFrame = new TextureRegion(atlasOpenChest.findRegion("goldchest7"));
-        notuseFrame = new TextureRegion(atlasOpenChest.findRegion("goldchest1"));
+//        atlasOpenChest = new TextureAtlas("Chest/Chest.pack");
+//        chestOpening = new Animation<TextureRegion>(0.5f, atlasOpenChest.getRegions());
+//        usedFrame = new TextureRegion(atlasOpenChest.findRegion("Chestche/sprite_45.png"));
+//        notuseFrame = new TextureRegion(atlasOpenChest.findRegion("Chestche/sprite_46.png"));
+        usedTexture = new Texture("Chestche/sprite_39.png");
+        notuseTexture = new Texture("Chestche/sprite_3.png");
+
+        usedFrame = new TextureRegion(usedTexture);
+        notuseFrame = new TextureRegion(notuseTexture);
     }
 
     @Override
@@ -92,7 +101,7 @@ public class Chest1 extends EffectedObject {
         setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2);
         TextureRegion frame = getFrame(dt);
 
-        setBounds(getX(), getY(), frame.getRegionWidth() / GameWorld.PPM * scaleX,
+        setBounds(getX(), getY()+10/GameWorld.PPM, frame.getRegionWidth() / GameWorld.PPM * scaleX,
             frame.getRegionHeight() / GameWorld.PPM * scaleY);
         setRegion(frame);
     }
@@ -109,12 +118,12 @@ public class Chest1 extends EffectedObject {
             return State.NOTUSE;
         }
         else{
-            if (using && !chestOpening.isAnimationFinished(stateTime)) return State.USING;
-            else{
+//            if (using && !chestOpening.isAnimationFinished(stateTime)) return State.USING;
+//            else{
                 using = false;
                 used = true;
                 return State.USED;
-            }
+//            }
         }
     }
 
@@ -125,9 +134,9 @@ public class Chest1 extends EffectedObject {
             case USED:
                 region = usedFrame;
                 break;
-            case USING:
-                region = (TextureRegion) chestOpening.getKeyFrame(stateTime);
-                break;
+//            case USING:
+//                region = (TextureRegion) chestOpening.getKeyFrame(stateTime);
+//                break;
             case NOTUSE:
             default:
                 region = notuseFrame;

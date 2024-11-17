@@ -8,9 +8,6 @@ import com.projectoop.game.sprites.Knight;
 import com.projectoop.game.sprites.effectedObject.Chest;
 import com.projectoop.game.sprites.effectedObject.Chest1;
 import com.projectoop.game.sprites.enemy.Enemy;
-import com.projectoop.game.sprites.enemy.Eye;
-import com.projectoop.game.sprites.enemy.Orc;
-import com.projectoop.game.sprites.enemy.Skeleton;
 import com.projectoop.game.sprites.items.Item;
 import com.projectoop.game.sprites.trap.InteractiveTileObject;
 import com.projectoop.game.sprites.weapons.Arrow;
@@ -61,31 +58,15 @@ public class WorldContactListener implements ContactListener {
                 break;
             //enemy collision
             case GameWorld.ENEMY_BIT | GameWorld.PILAR_BIT://enemy collide with object -> reverse
-                //Gdx.app.log("Enemy", "Pilar");
                 Enemy enemy = (Enemy) ((fixA.getFilterData().categoryBits == GameWorld.ENEMY_BIT) ? fixA.getUserData() : fixB.getUserData());
                 enemy.reverseVelocity(true, false);
                 break;
             case GameWorld.ENEMY_BIT | GameWorld.ENEMY_BIT:
-                //Gdx.app.log("Orc", "Orc");
                 ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
                 ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
                 break;
             case GameWorld.ENEMY_BIT| GameWorld.OBJECT_BIT:
                 if(fixA.getFilterData().categoryBits == GameWorld.ENEMY_BIT)
-                    ((Enemy)fixA.getUserData()).reverseVelocity(true,false);
-                else
-                    ((Enemy)fixB.getUserData()).reverseVelocity(true,false);
-                break;
-            // test
-            case GameWorld.ENEMY1_BIT| GameWorld.OBJECT_BIT:
-                if(fixA.getFilterData().categoryBits == GameWorld.ENEMY1_BIT)
-                    ((Enemy)fixA.getUserData()).reverseVelocity(true,false);
-                else
-                    ((Enemy)fixB.getUserData()).reverseVelocity(true,false);
-                break;
-            // test
-            case GameWorld.ENEMY2_BIT| GameWorld.OBJECT_BIT:
-                if(fixA.getFilterData().categoryBits == GameWorld.ENEMY2_BIT)
                     ((Enemy)fixA.getUserData()).reverseVelocity(true,false);
                 else
                     ((Enemy)fixB.getUserData()).reverseVelocity(true,false);
@@ -96,56 +77,43 @@ public class WorldContactListener implements ContactListener {
                 if(fixA.getFilterData().categoryBits == GameWorld.ARROW_BIT) {
                     Gdx.app.log("Enemy hit", "");
                     ((Arrow)(fixA.getUserData())).destroy();
-                    ((Orc)(fixB.getUserData())).hurtingCallBack();
+                    ((Enemy)(fixB.getUserData())).hurtingCallBack();
                 }
                 else {
                     Gdx.app.log("Enemy hit", "");
                     ((Arrow)(fixB.getUserData())).destroy();
-                    ((Orc)(fixA.getUserData())).hurtingCallBack();
+                    ((Enemy)(fixA.getUserData())).hurtingCallBack();
                 }
+
                 break;
-            // test
-            case GameWorld.ENEMY1_BIT | GameWorld.ARROW_BIT://test
-                //Gdx.app.log("Arrow", "Enemy");
-                if(fixA.getFilterData().categoryBits == GameWorld.ARROW_BIT) {
-                    Gdx.app.log("Enemy hit", "");
-                    ((Arrow)(fixA.getUserData())).destroy();
-                    ((Eye)(fixB.getUserData())).hurtingCallBack();
-                }
-                else {
-                    Gdx.app.log("Enemy hit", "");
-                    ((Arrow)(fixB.getUserData())).destroy();
-                    ((Eye)(fixA.getUserData())).hurtingCallBack();
-                }
+
+            case GameWorld.OBJECT_BIT | GameWorld.ARROW_BIT:
+                Arrow arrow3 = (Arrow) ((fixA.getFilterData().categoryBits == GameWorld.ARROW_BIT) ? fixA.getUserData() : fixB.getUserData());
+                arrow3.destroy();
                 break;
             case GameWorld.GROUND_BIT | GameWorld.ARROW_BIT:
             case GameWorld.CHEST_BIT | GameWorld.ARROW_BIT:
-                //Gdx.app.log("Arrow", "Object");
                 Arrow arrow1 = (Arrow) ((fixA.getFilterData().categoryBits == GameWorld.ARROW_BIT) ? fixA.getUserData() : fixB.getUserData());
                 arrow1.destroy();
                 break;
             // test
             case GameWorld.CHEST1_BIT | GameWorld.ARROW_BIT:
-                //Gdx.app.log("Arrow", "Object");
                 Arrow arrow2 = (Arrow) ((fixA.getFilterData().categoryBits == GameWorld.ARROW_BIT) ? fixA.getUserData() : fixB.getUserData());
                 arrow2.destroy();
                 break;
             //chest collision
             case GameWorld.CHEST_BIT | GameWorld.KNIGHT_FOOT_BIT:
             case GameWorld.CHEST_BIT | GameWorld.KNIGHT_BIT:
-                //Gdx.app.log("Knight", "Open Chest");
                 Chest chest = (Chest)((fixA.getFilterData().categoryBits == GameWorld.CHEST_BIT) ? fixA.getUserData() : fixB.getUserData());
                 chest.usingCallBack();
                 break;
             // test
             case GameWorld.CHEST1_BIT | GameWorld.KNIGHT_FOOT_BIT:
             case GameWorld.CHEST1_BIT | GameWorld.KNIGHT_BIT:
-                //Gdx.app.log("Knight", "Open Chest");
                 Chest1 chest1 = (Chest1)((fixA.getFilterData().categoryBits == GameWorld.CHEST1_BIT) ? fixA.getUserData() : fixB.getUserData());
                 chest1.usingCallBack();
                 break;
             case GameWorld.ITEM_BIT | GameWorld.KNIGHT_BIT:
-                //Gdx.app.log("Knight", "Buff");
                 if(fixA.getFilterData().categoryBits == GameWorld.ITEM_BIT)
                     ((Item)fixA.getUserData()).use((Knight) fixB.getUserData());
                 else
@@ -154,60 +122,29 @@ public class WorldContactListener implements ContactListener {
 
 
             //knight and enemy
-            // test
-//            case GameWorld.ENEMY2_BIT | GameWorld.KNIGHT_BIT:
-//                if(fixA.getFilterData().categoryBits == GameWorld.ENEMY2_BIT) {
-//                    Gdx.app.log("Enemy hit", "");
-//                    ((Skeleton) fixA.getUserData()).attackingCallBack();
-//                }
-//                else {
-//                    Gdx.app.log("Enemy hit", "");
-//                    ((Skeleton) fixB.getUserData()).attackingCallBack();
-//                }
-//                break;
             case GameWorld.ENEMY_BIT | GameWorld.KNIGHT_BIT:
                 if (fixA.getFilterData().categoryBits == GameWorld.ENEMY_BIT) {
-                    Orc orc = (Orc) fixA.getUserData();
-                    orc.attackingCallBack();
+                    Enemy enemy1 = (Enemy) fixA.getUserData();
                     Knight knight = (Knight) fixB.getUserData();
-                    knight.takeDamage(orc.getAttackDamage()); // Orc gây sát thương cho Knight
+
+                    // Kiểm tra và chỉ gây sát thương nếu đã thực hiện callback
+                    if (enemy1.hasAttacked()) {
+                        knight.takeDamage(enemy1.getAttackDamage());
+                        enemy1.resetAttackState(); // Reset trạng thái để chuẩn bị cho lần tấn công tiếp theo
+                    } else {
+                        enemy1.attackingCallBack();
+                    }
+
                 } else {
-                    Orc orc = (Orc) fixB.getUserData();
-                    orc.attackingCallBack();
+                    Enemy enemy1 = (Enemy) fixB.getUserData();
                     Knight knight = (Knight) fixA.getUserData();
-                    knight.takeDamage(orc.getAttackDamage()); // Orc gây sát thương cho Knight
-                }
-                break;
-            case GameWorld.ENEMY1_BIT | GameWorld.KNIGHT_BIT:
-                if (fixA.getFilterData().categoryBits == GameWorld.ENEMY1_BIT) {
-                    Eye eye = (Eye) fixA.getUserData();
-                    eye.attackingCallBack();
-                    Knight knight = (Knight) fixB.getUserData();
-                    knight.takeDamage(eye.getAttackDamage()); // Eye gây sát thương cho Knight
 
-                } else {
-                    Eye eye = (Eye) fixB.getUserData();
-                    eye.attackingCallBack();
-                    Knight knight = (Knight) fixA.getUserData();
-                    knight.takeDamage(eye.getAttackDamage()); // Eye gây sát thương cho Knight
-
-                }
-                break;
-            case GameWorld.ENEMY2_BIT | GameWorld.KNIGHT_BIT:
-                if (fixA.getFilterData().categoryBits == GameWorld.ENEMY2_BIT) {
-                    Skeleton skeleton = (Skeleton) fixA.getUserData();
-                    skeleton.attackingCallBack();
-//                    Knight knight = (Knight) fixB.getUserData();
-//                    knight.takeDamage(eye.getAttackDamage()); // Eye gây sát thương cho Knight
-//                    System.out.println("FixtureA: " + fixA.getUserData());
-//                    System.out.println("FixtureB: " + fixB.getUserData());
-
-                } else {
-                    Skeleton skeleton = (Skeleton) fixB.getUserData();
-                    skeleton.attackingCallBack();
-//                    Knight knight = (Knight) fixA.getUserData();
-//                    knight.takeDamage(eye.getAttackDamage()); // Eye gây sát thương cho Knight
-
+                    if (enemy1.hasAttacked()) {
+                        knight.takeDamage(enemy1.getAttackDamage());
+                        enemy1.resetAttackState();
+                    } else {
+                        enemy1.attackingCallBack();
+                    }
                 }
                 break;
         }

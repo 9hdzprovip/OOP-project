@@ -34,7 +34,7 @@ public class Arrow extends Bullet {
         FixtureDef fdef = new FixtureDef();
         fdef.filter.categoryBits = GameWorld.ARROW_BIT;
         fdef.filter.maskBits = GameWorld.GROUND_BIT | GameWorld.ENEMY_BIT |
-            GameWorld.CHEST_BIT | GameWorld.ITEM_BIT;
+            GameWorld.CHEST_BIT | GameWorld.ITEM_BIT| GameWorld.ENEMY2_BIT| GameWorld.OBJECT_BIT;
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData(this);
     }

@@ -52,7 +52,7 @@ public class Potion1 extends Item{
 
     @Override
     protected void prepareAnimation() {
-        texture = new Texture("ice potion.png");
+        texture = new Texture("poison potion.png");
         frame = new TextureRegion(texture);
         setRegion(frame);
     }

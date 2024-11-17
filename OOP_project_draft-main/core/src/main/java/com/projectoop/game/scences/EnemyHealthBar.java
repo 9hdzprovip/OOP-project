@@ -1,20 +1,23 @@
-package com.projectoop.game.sprites.enemy;
+package com.projectoop.game.scences;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.projectoop.game.GameWorld;
+import com.projectoop.game.sprites.enemy.GroundEnemy;
 
-public class SkeletonHealthBar {
+public class EnemyHealthBar {
     private Texture bgTexture;
     private Texture redTexture;
     private float maxHealth;
     private float currentHealth;
-    private Skeleton skeleton;
+    private GroundEnemy groundEnemy;
 
-    public SkeletonHealthBar(Skeleton skeleton, float maxHealth) {
-        this.skeleton = skeleton;
+    public EnemyHealthBar(GroundEnemy groundEnemy, float maxHealth) {
+        this.groundEnemy = groundEnemy;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
+
+
 
         bgTexture = new Texture("HealthBar/bg.png");
         redTexture = new Texture("HealthBar/green.png");
@@ -26,12 +29,17 @@ public class SkeletonHealthBar {
 
     public void draw(Batch batch) {
         float healthPercentage = currentHealth / maxHealth;
-        float barWidth = 60 / GameWorld.PPM;
+        float barWidth = 50 / GameWorld.PPM;
         float barHeight = 8 / GameWorld.PPM;
 
         // Vị trí thanh máu ở trên đầu orc
-        float barX = skeleton.getX()+45/GameWorld.PPM;
-        float barY = skeleton.getY() + skeleton.getHeight() / 2 + barHeight+ 20/ GameWorld.PPM;
+//        float barX = groundEnemy.getX()+45/GameWorld.PPM;
+//        float barY = groundEnemy.getY() + groundEnemy.getHeight() / 2 + barHeight+ 20/ GameWorld.PPM;
+        float barX = groundEnemy.b2body.getPosition().x - barWidth/2;
+        float barY = groundEnemy.b2body.getPosition().y+ 20/GameWorld.PPM;         // tu xet vi tri
+
+
+
 
         // Vẽ nền thanh máu
         batch.draw(bgTexture, barX, barY, barWidth, barHeight);
@@ -45,7 +53,3 @@ public class SkeletonHealthBar {
         redTexture.dispose();
     }
 }
-
-
-
-

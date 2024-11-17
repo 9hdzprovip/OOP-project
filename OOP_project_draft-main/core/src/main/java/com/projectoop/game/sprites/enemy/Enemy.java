@@ -50,6 +50,9 @@ public abstract class Enemy extends Sprite {
     public abstract void destroy();
     public abstract void attackingCallBack();
     public abstract void hurtingCallBack();
+    public abstract float getAttackDamage();
+    public abstract  boolean hasAttacked();
+    public abstract  void resetAttackState();
 
     public void reverseVelocity(boolean x, boolean y){
         if (x){

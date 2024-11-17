@@ -1,0 +1,19 @@
+
+HealthBar.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+HealthBar
+  rotate: false
+  xy: 1, 8
+  size: 48, 11
+  orig: 51, 17
+  offset: 0, 3
+  index: -1
+HealthBar2
+  rotate: false
+  xy: 1, 1
+  size: 42, 5
+  orig: 800, 600
+  offset: 324, 406
+  index: -1

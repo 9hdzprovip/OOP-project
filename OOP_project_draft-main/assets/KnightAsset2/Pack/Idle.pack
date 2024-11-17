@@ -1,0 +1,40 @@
+
+Idle.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+1_IDLE
+  rotate: false
+  xy: 1, 1
+  size: 675, 781
+  orig: 675, 781
+  offset: 0, 0
+  index: 0
+1_IDLE
+  rotate: false
+  xy: 678, 1
+  size: 675, 781
+  orig: 675, 781
+  offset: 0, 0
+  index: 1
+1_IDLE
+  rotate: false
+  xy: 1355, 1
+  size: 675, 781
+  orig: 675, 781
+  offset: 0, 0
+  index: 2
+1_IDLE
+  rotate: false
+  xy: 2032, 1
+  size: 675, 781
+  orig: 675, 781
+  offset: 0, 0
+  index: 3
+1_IDLE
+  rotate: false
+  xy: 2709, 1
+  size: 675, 781
+  orig: 675, 781
+  offset: 0, 0
+  index: 4

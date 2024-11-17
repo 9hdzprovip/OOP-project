@@ -1,0 +1,40 @@
+
+Die.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+7_DIE
+  rotate: false
+  xy: 1, 893
+  size: 1063, 890
+  orig: 1063, 890
+  offset: 0, 0
+  index: 0
+7_DIE
+  rotate: false
+  xy: 1, 1
+  size: 1063, 890
+  orig: 1063, 890
+  offset: 0, 0
+  index: 2
+7_DIE
+  rotate: false
+  xy: 1066, 893
+  size: 1063, 890
+  orig: 1063, 890
+  offset: 0, 0
+  index: 4
+7_DIE
+  rotate: false
+  xy: 1066, 1
+  size: 1063, 890
+  orig: 1063, 890
+  offset: 0, 0
+  index: 6
+7_DIE
+  rotate: false
+  xy: 2131, 893
+  size: 1063, 890
+  orig: 1063, 890
+  offset: 0, 0
+  index: 9

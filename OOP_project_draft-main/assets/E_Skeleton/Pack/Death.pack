@@ -1,0 +1,33 @@
+
+Death.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Death1
+  rotate: false
+  xy: 1, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+Death2
+  rotate: false
+  xy: 153, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+Death3
+  rotate: false
+  xy: 305, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1
+Death4
+  rotate: false
+  xy: 457, 1
+  size: 150, 150
+  orig: 150, 150
+  offset: 0, 0
+  index: -1

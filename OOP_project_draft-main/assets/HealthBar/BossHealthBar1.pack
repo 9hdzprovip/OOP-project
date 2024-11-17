@@ -1,0 +1,12 @@
+
+BossHealthBar1.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+BossHealthBar1
+  rotate: false
+  xy: 1, 1
+  size: 42, 11
+  orig: 200, 200
+  offset: 59, 165
+  index: -1

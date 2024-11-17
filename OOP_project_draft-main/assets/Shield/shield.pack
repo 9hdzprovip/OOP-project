@@ -1,0 +1,26 @@
+
+shield.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+sheild
+  rotate: false
+  xy: 1, 2
+  size: 73, 72
+  orig: 73, 72
+  offset: 0, 0
+  index: 2
+shield
+  rotate: false
+  xy: 76, 1
+  size: 72, 73
+  orig: 72, 73
+  offset: 0, 0
+  index: 1
+shield
+  rotate: false
+  xy: 150, 21
+  size: 52, 53
+  orig: 52, 53
+  offset: 0, 0
+  index: 0

@@ -1,0 +1,26 @@
+
+Items.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Golden Sword
+  rotate: false
+  xy: 1, 1
+  size: 29, 30
+  orig: 32, 32
+  offset: 2, 1
+  index: -1
+Iron Shield
+  rotate: false
+  xy: 32, 1
+  size: 28, 30
+  orig: 32, 32
+  offset: 2, 1
+  index: -1
+Heart
+  rotate: false
+  xy: 62, 4
+  size: 30, 27
+  orig: 32, 32
+  offset: 1, 2
+  index: -1

@@ -1,0 +1,12 @@
+
+HeroHealthBar1.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+HeroHealthBar1
+  rotate: false
+  xy: 1, 1
+  size: 48, 11
+  orig: 100, 100
+  offset: 27, 44
+  index: -1

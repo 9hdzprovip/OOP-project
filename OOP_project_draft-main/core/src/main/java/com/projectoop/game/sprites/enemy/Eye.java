@@ -8,6 +8,8 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.projectoop.game.GameWorld;
 import com.projectoop.game.screens.PlayScreen;
+import com.projectoop.game.sprites.Knight;
+
 public class Eye extends GroundEnemy{
     public Eye(PlayScreen screen, float x, float y) {
         super(screen, x, y, 0, 0.9f);
@@ -28,7 +30,7 @@ public class Eye extends GroundEnemy{
         //Collision bit list
         fdef.filter.maskBits = GameWorld.GROUND_BIT |
             GameWorld.TRAP_BIT | GameWorld.ENEMY_BIT | GameWorld.CHEST_BIT |
-            GameWorld.PILAR_BIT | GameWorld.KNIGHT_BIT | GameWorld.ARROW_BIT| GameWorld.OBJECT_BIT;
+             GameWorld.KNIGHT_BIT | GameWorld.ARROW_BIT| GameWorld.OBJECT_BIT;
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData(this);
     }

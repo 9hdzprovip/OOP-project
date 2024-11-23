@@ -1,0 +1,26 @@
+
+Hurt.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Bringer-of-Death_Hurt
+  rotate: false
+  xy: 1, 1
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 1
+Bringer-of-Death_Hurt
+  rotate: false
+  xy: 143, 1
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 2
+Bringer-of-Death_Hurt
+  rotate: false
+  xy: 285, 1
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 3

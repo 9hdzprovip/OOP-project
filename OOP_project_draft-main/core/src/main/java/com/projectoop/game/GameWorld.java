@@ -14,20 +14,18 @@ public class GameWorld extends Game {
     public static final short GROUND_BIT = 1;
     public static final short KNIGHT_BIT = 2;
     public static final short TRAP_BIT = 4;
-    public static final short PILAR_BIT = 8;
-    public static final short DESTROYED_BIT = 16;
-    public static final short BRICK_BIT = 32;
+    public static final short KNIGHT_SWORD_RIGHT = 8;
+    public static final short KNIGHT_SWORD_LEFT = 16;
+
     public static final short ENEMY_BIT = 64;
     //test
-    public static final short ENEMY1_BIT = 65;
-    public static final short ENEMY2_BIT = 4096;
     public static final short KNIGHT_FOOT_BIT = 128;
     public static final short OBJECT_BIT = 256;
     public static final short ARROW_BIT = 512;
     public static final short CHEST_BIT = 1024;
     public static final short CHEST1_BIT = 1025;
     public static final short ITEM_BIT = 2048;
-    public static final short FIREBALL_BIT = 513;
+
 
     public SpriteBatch batch;//container hold all images or texture for rendering
     public SpriteBatch getBatch() {

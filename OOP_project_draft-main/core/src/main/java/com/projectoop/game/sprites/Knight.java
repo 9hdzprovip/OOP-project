@@ -16,6 +16,11 @@ public class Knight extends Sprite {
     public State previousState;
     public World world;
     public Body b2body;
+    // test
+    private boolean isGiant; // Trạng thái có phải khổng lồ hay không
+    private float giantTimer;
+    private static final float GIANT_DURATION = 40f; // thời gian khổng lồ (5 giây)
+
 
     private static float scaleX = 1.5f;
     private static float scaleY = 1.5f;
@@ -57,6 +62,7 @@ public class Knight extends Sprite {
     private boolean isAttacking1;
     private boolean isAttacking2;
     private boolean isAttacking3;
+    private boolean isAttack3;// them
     private boolean isDie;
     private boolean isJumping;
     private boolean endGame;
@@ -67,6 +73,9 @@ public class Knight extends Sprite {
     // test
     public int Health;
     public int HealthMax;
+    // test
+    private float baseDamage;
+    private float giantDamageMultiplier;
 
 
 
@@ -75,6 +84,9 @@ public class Knight extends Sprite {
         //test
         Health = 200;        // Giá trị khởi tạo cho sức khỏe hiện tại
         HealthMax = 200;
+        // test
+        this.baseDamage = 10; // Sát thương cơ bản
+        this.giantDamageMultiplier = 10.0f; // Hệ số tăng sát thương khi là người khổng lồ
 
         this.world = screen.getWorld();
         currentState = State.STANDING;
@@ -89,6 +101,7 @@ public class Knight extends Sprite {
         setBounds(0, 0, 16/GameWorld.PPM, 16/GameWorld.PPM);
 
         isAttacking1 = false; isAttacking2 = false; isAttacking3 = false;
+        isAttack3 = false;
         isDie = false;
         isHurt = false;
         isHurting = false;
@@ -171,7 +184,7 @@ public class Knight extends Sprite {
         fdef.filter.maskBits =
             GameWorld.GROUND_BIT |
             GameWorld.TRAP_BIT | GameWorld.CHEST_BIT |
-            GameWorld.ENEMY_BIT | GameWorld.ITEM_BIT| GameWorld.OBJECT_BIT| GameWorld.CHEST1_BIT|GameWorld.ENEMY2_BIT;
+            GameWorld.ENEMY_BIT | GameWorld.ITEM_BIT| GameWorld.OBJECT_BIT| GameWorld.CHEST1_BIT;
 
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData(this);// chú ý cai này
@@ -192,15 +205,37 @@ public class Knight extends Sprite {
         fdef.filter.categoryBits = GameWorld.KNIGHT_FOOT_BIT;
         fdef.shape = foot;
         //fdef.isSensor = true;//foot is a sensor
-
         b2body.createFixture(fdef).setUserData(this);
+
+        //sword hit right sensor
+        EdgeShape swordRight = new EdgeShape();
+        swordRight.set(new Vector2(20/GameWorld.PPM, -6/GameWorld.PPM),
+            new Vector2(20/GameWorld.PPM, 6/GameWorld.PPM));
+        fdef.filter.categoryBits = GameWorld.KNIGHT_SWORD_RIGHT;
+        fdef.shape = swordRight;
+        fdef.isSensor = true;
+        b2body.createFixture(fdef).setUserData(this);
+        //sword hit left sensor
+        EdgeShape swordLeft = new EdgeShape();
+        swordLeft.set(new Vector2(-20/GameWorld.PPM, -6/GameWorld.PPM),
+            new Vector2(-20/GameWorld.PPM, 6/GameWorld.PPM));
+        fdef.filter.categoryBits = GameWorld.KNIGHT_SWORD_LEFT;
+        fdef.shape = swordLeft;
+        fdef.isSensor = true;
+        b2body.createFixture(fdef).setUserData(this);
+
+    }
+    public boolean isAttack(){
+        return (currentState == State.ATTACKING1 || currentState == State.ATTACKING2);
     }
 
 
     public void hurtingCallBack(){
         isHurt = true;
     }
-
+    public boolean isJumping() {
+        return isJumping;
+    }
     public boolean isEndGame(){
         return endGame;
     }
@@ -235,6 +270,8 @@ public class Knight extends Sprite {
         if (Health > HealthMax) {
             Health = HealthMax; // Giới hạn Health không vượt quá HealthMax
         }
+        transformToGiant();
+
         System.out.println("Bufffffffffff");
 
 
@@ -245,9 +282,13 @@ public class Knight extends Sprite {
         return (currentState != State.DEAD && currentState != State.ATTACKING3 && currentState != State.HURTING);
     }
 
-    public boolean isJumping(){
-        return isJumping;
+    public boolean isHitRight(){
+        return (currentState == State.ATTACKING1 || currentState == State.ATTACKING2) && isRunningRight;
     }
+    public boolean isHitLeft(){
+        return (currentState == State.ATTACKING1 || currentState == State.ATTACKING2) && !isRunningRight;
+    }
+
 
     public void attack1CallBack(){
         isAttacking1 = true;
@@ -256,7 +297,8 @@ public class Knight extends Sprite {
         isAttacking2 = true;
     }
     public void attack3CallBack(){
-        isAttacking3 = true;
+        //isAttacking3 = true;
+        isAttack3 = true;
     }
 
     public TextureRegion getFrame(float dt){
@@ -340,10 +382,17 @@ public class Knight extends Sprite {
             if (!knightHurt.isAnimationFinished(stateTimer)) {
                 System.out.println("KKKKKKKKKKKKKKKK");
                 return State.HURTING;
-            } else isHurting = false;
+            } else {
+                isHurting = false;
+            };
         }
 
         //attack code
+        if (isAttack3){//avoid shooting without animation
+            isAttack3 = false;
+            isAttacking3 = true;
+            return State.ATTACKING3;
+        }
         if (isAttacking1){//test
             if (!knightAttack1.isAnimationFinished(stateTimer)){
                 return State.ATTACKING1;
@@ -399,6 +448,16 @@ public class Knight extends Sprite {
     public void update(float dt){
         setPosition(b2body.getPosition().x - getWidth()/2, b2body.getPosition().y - getHeight()/2);
         TextureRegion frame = getFrame(dt);
+        // Cập nhật trạng thái khổng lồ
+        if (isGiant) {
+            giantTimer -= dt;
+            if (giantTimer <= 0) {
+                isGiant = false;
+                scaleX /= 2; // Quay về kích thước bình thường
+                scaleY /= 2;
+                System.out.println("Knight trở lại kích thước bình thường!");
+            }
+        }
 
         //this scale Knight 1.5 time bigger
         setBounds(getX(), getY(), frame.getRegionWidth()/GameWorld.PPM*scaleX,
@@ -413,6 +472,24 @@ public class Knight extends Sprite {
     public int getHealthMax() {
         return HealthMax;
     }
+    // test
+    public void transformToGiant() {
+        if (!isGiant) {
+            scaleX *= 2.0f; // Tăng kích thước
+            scaleY *= 2.0f;
+//            HealthMax *= 2; // Tăng giới hạn máu
+//            Health = HealthMax; // Đầy máu khi biến hình
+            //b2body.getFixtureList().first().getShape().setRadius(12 / GameWorld.PPM); // Tăng bán kính va chạm
+            isGiant = true;
+            giantTimer = GIANT_DURATION;
+            System.out.println("Knight has transformed into a Giant!");
+        }
+    }
+    public float getAttackDamage() {
+        return isGiant ? baseDamage * giantDamageMultiplier : baseDamage;
+    }
+
+
 
 
 

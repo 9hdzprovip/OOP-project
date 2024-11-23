@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="afe06992-ee86-4535-bbb7-8084ca8a4045" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/assets/level2.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/assets/level2.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/scences/HealthBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/scences/HealthBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/screens/PlayScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/screens/PlayScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/enemy/Eye.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/enemy/Eye.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/enemy/GroundEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/enemy/GroundEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/enemy/Orc.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/enemy/Orc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/enemy/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/enemy/Skeleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/items/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/items/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/items/Potion1.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/items/Potion1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/trap/Pilar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/weapons/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/sprites/weapons/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/tools/B2WorldCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/tools/B2WorldCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/tools/WorldContactListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_project_draft-main/core/src/main/java/com/projectoop/game/tools/WorldContactListener.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/OOP_project_draft-main">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "9hdzprovip"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/quangducnguyen1205/ProjectOOP.git",
+    "accountId": "52e27a1c-eb4a-44b0-827d-2c43f5f9ee49"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2p8rMCgGKdXEvPjW4PZyCTdJApS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.OOP_project_draft-main:lwjgl3 [:lwjgl3:com.projectoop.game.lwjgl3.Lwjgl3Launcher.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "chinhlan2",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/hoc_tap/OOP_project_draft-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="afe06992-ee86-4535-bbb7-8084ca8a4045" name="Changes" comment="" />
+      <created>1732158494143</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732158494143</updated>
+      <workItem from="1732158495183" duration="1971000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

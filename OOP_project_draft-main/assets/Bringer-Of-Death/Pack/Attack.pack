@@ -1,0 +1,75 @@
+
+Attack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 1, 96
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 1
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 1, 1
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 10
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 143, 96
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 2
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 143, 1
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 3
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 285, 96
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 4
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 285, 1
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 5
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 427, 96
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 6
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 427, 1
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 7
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 569, 96
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 8
+Bringer-of-Death_Attack
+  rotate: false
+  xy: 569, 1
+  size: 140, 93
+  orig: 140, 93
+  offset: 0, 0
+  index: 9

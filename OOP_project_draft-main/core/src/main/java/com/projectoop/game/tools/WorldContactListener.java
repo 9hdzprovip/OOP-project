@@ -57,10 +57,6 @@ public class WorldContactListener implements ContactListener {
                 }
                 break;
             //enemy collision
-            case GameWorld.ENEMY_BIT | GameWorld.PILAR_BIT://enemy collide with object -> reverse
-                Enemy enemy = (Enemy) ((fixA.getFilterData().categoryBits == GameWorld.ENEMY_BIT) ? fixA.getUserData() : fixB.getUserData());
-                enemy.reverseVelocity(true, false);
-                break;
             case GameWorld.ENEMY_BIT | GameWorld.ENEMY_BIT:
                 ((Enemy)fixA.getUserData()).reverseVelocity(true, false);
                 ((Enemy)fixB.getUserData()).reverseVelocity(true, false);
@@ -121,31 +117,45 @@ public class WorldContactListener implements ContactListener {
                 break;
 
 
-            //knight and enemy
-            case GameWorld.ENEMY_BIT | GameWorld.KNIGHT_BIT:
-                if (fixA.getFilterData().categoryBits == GameWorld.ENEMY_BIT) {
-                    Enemy enemy1 = (Enemy) fixA.getUserData();
-                    Knight knight = (Knight) fixB.getUserData();
-
-                    // Kiểm tra và chỉ gây sát thương nếu đã thực hiện callback
-                    if (enemy1.hasAttacked()) {
-                        knight.takeDamage(enemy1.getAttackDamage());
-                        enemy1.resetAttackState(); // Reset trạng thái để chuẩn bị cho lần tấn công tiếp theo
-                    } else {
-                        enemy1.attackingCallBack();
-                    }
-
-                } else {
-                    Enemy enemy1 = (Enemy) fixB.getUserData();
-                    Knight knight = (Knight) fixA.getUserData();
-
-                    if (enemy1.hasAttacked()) {
-                        knight.takeDamage(enemy1.getAttackDamage());
-                        enemy1.resetAttackState();
-                    } else {
-                        enemy1.attackingCallBack();
-                    }
-                }
+//            //knight and enemy
+//            case GameWorld.ENEMY_BIT | GameWorld.KNIGHT_BIT:
+//                if (fixA.getFilterData().categoryBits == GameWorld.ENEMY_BIT) {
+//                    Enemy enemy1 = (Enemy) fixA.getUserData();
+//                    Knight knight = (Knight) fixB.getUserData();
+//
+//                    // Kiểm tra và chỉ gây sát thương nếu đã thực hiện callback
+//                    if (enemy1.hasAttacked()) {
+//                        knight.takeDamage(enemy1.getAttackDamage());
+//                        enemy1.resetAttackState(); // Reset trạng thái để chuẩn bị cho lần tấn công tiếp theo
+//                    } else {
+//                        enemy1.attackingCallBack();
+//                    }
+//
+//                } else {
+//                    Enemy enemy1 = (Enemy) fixB.getUserData();
+//                    Knight knight = (Knight) fixA.getUserData();
+//
+//                    if (enemy1.hasAttacked()) {
+//                        knight.takeDamage(enemy1.getAttackDamage());
+//                        enemy1.resetAttackState();
+//                    } else {
+//                        enemy1.attackingCallBack();
+//                    }
+//                }
+//                break;
+            case GameWorld.KNIGHT_SWORD_RIGHT | GameWorld.ENEMY_BIT:
+                Enemy enemyRight = (Enemy) ((fixA.getFilterData().categoryBits == GameWorld.ENEMY_BIT) ? fixA.getUserData() : fixB.getUserData());
+                enemyRight.attackingCallBack();
+//                if (enemyRight.velocity.x < 0){
+//                    screen.getPlayer().hurtingCallBack();
+//                }
+                break;
+            case GameWorld.KNIGHT_SWORD_LEFT | GameWorld.ENEMY_BIT:
+                Enemy enemyLeft = (Enemy) ((fixA.getFilterData().categoryBits == GameWorld.ENEMY_BIT) ? fixA.getUserData() : fixB.getUserData());
+                enemyLeft.attackingCallBack();
+//                if (enemyLeft.velocity.x > 0){
+//                    screen.getPlayer().hurtingCallBack();
+//                }
                 break;
         }
     }

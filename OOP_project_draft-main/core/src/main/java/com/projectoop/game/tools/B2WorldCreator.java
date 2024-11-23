@@ -119,6 +119,7 @@ public class B2WorldCreator {
         }
 
 
+
     }
 
     public Array<Orc> getOrcs() {
@@ -130,6 +131,7 @@ public class B2WorldCreator {
     public Array<Skeleton> getSkeletons() {
         return skeletons;
     }
+
 
     public Array<Chest> getChests(){
         return chests;

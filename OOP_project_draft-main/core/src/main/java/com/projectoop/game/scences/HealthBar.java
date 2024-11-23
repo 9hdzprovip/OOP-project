@@ -36,7 +36,7 @@ public class HealthBar {
     public void update(float dt) {
 //        // draw Hero HeroHeroHealthBar
         batch.begin();
-        float x = screen.getCamera().position.x-screen.getGamePort().getWorldWidth()-100/GameWorld.PPM;
+        float x = screen.getCamera().position.x-screen.getGamePort().getWorldWidth()-100/ GameWorld.PPM;
         float y = 175/GameWorld.PPM+screen.getCamera().position.y+screen.getGamePort().getWorldHeight()/2;
 
 

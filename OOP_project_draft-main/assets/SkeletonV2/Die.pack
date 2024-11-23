@@ -1,0 +1,110 @@
+
+Die.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Skeleton Dead
+  rotate: false
+  xy: 1, 45
+  size: 24, 32
+  orig: 33, 32
+  offset: 5, 0
+  index: 3
+Skeleton Dead
+  rotate: false
+  xy: 1, 45
+  size: 24, 32
+  orig: 33, 32
+  offset: 5, 0
+  index: 4
+Skeleton Dead
+  rotate: false
+  xy: 1, 45
+  size: 24, 32
+  orig: 33, 32
+  offset: 5, 0
+  index: 5
+Skeleton Dead
+  rotate: false
+  xy: 1, 11
+  size: 24, 32
+  orig: 33, 32
+  offset: 5, 0
+  index: 6
+Skeleton Dead
+  rotate: false
+  xy: 1, 1
+  size: 30, 8
+  orig: 33, 32
+  offset: 0, 0
+  index: 12
+Skeleton Dead
+  rotate: false
+  xy: 27, 45
+  size: 24, 32
+  orig: 33, 32
+  offset: 5, 0
+  index: 7
+Skeleton Dead
+  rotate: false
+  xy: 27, 11
+  size: 23, 32
+  orig: 33, 32
+  offset: 8, 0
+  index: 1
+Skeleton Dead
+  rotate: false
+  xy: 53, 45
+  size: 23, 32
+  orig: 33, 32
+  offset: 7, 0
+  index: 2
+Skeleton Dead
+  rotate: false
+  xy: 52, 11
+  size: 22, 32
+  orig: 33, 32
+  offset: 11, 0
+  index: 0
+Skeleton Dead
+  rotate: false
+  xy: 78, 46
+  size: 23, 31
+  orig: 33, 32
+  offset: 5, 0
+  index: 8
+Skeleton Dead
+  rotate: false
+  xy: 103, 49
+  size: 23, 28
+  orig: 33, 32
+  offset: 4, 0
+  index: 9
+Skeleton Dead
+  rotate: false
+  xy: 33, 2
+  size: 30, 7
+  orig: 33, 32
+  offset: 0, 0
+  index: 13
+Skeleton Dead
+  rotate: false
+  xy: 76, 18
+  size: 24, 25
+  orig: 33, 32
+  offset: 4, 0
+  index: 10
+Skeleton Dead
+  rotate: false
+  xy: 76, 9
+  size: 30, 7
+  orig: 33, 32
+  offset: 0, 0
+  index: 14
+Skeleton Dead
+  rotate: false
+  xy: 103, 31
+  size: 25, 16
+  orig: 33, 32
+  offset: 4, 0
+  index: 11

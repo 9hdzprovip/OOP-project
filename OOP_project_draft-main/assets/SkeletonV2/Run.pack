@@ -1,0 +1,96 @@
+
+Run.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Skeleton Walk
+  rotate: false
+  xy: 1, 103
+  size: 22, 33
+  orig: 22, 33
+  offset: 0, 0
+  index: 5
+Skeleton Walk
+  rotate: false
+  xy: 25, 104
+  size: 22, 32
+  orig: 22, 33
+  offset: 0, 0
+  index: 6
+Skeleton Walk
+  rotate: false
+  xy: 49, 104
+  size: 22, 32
+  orig: 22, 33
+  offset: 0, 0
+  index: 7
+Skeleton Walk
+  rotate: false
+  xy: 25, 70
+  size: 22, 32
+  orig: 22, 33
+  offset: 0, 0
+  index: 8
+Skeleton Walk
+  rotate: false
+  xy: 1, 69
+  size: 22, 32
+  orig: 22, 33
+  offset: 0, 0
+  index: 9
+Skeleton Walk
+  rotate: false
+  xy: 49, 69
+  size: 21, 33
+  orig: 22, 33
+  offset: 0, 0
+  index: 4
+Skeleton Walk
+  rotate: false
+  xy: 25, 35
+  size: 20, 33
+  orig: 22, 33
+  offset: 0, 0
+  index: 3
+Skeleton Walk
+  rotate: false
+  xy: 1, 35
+  size: 20, 32
+  orig: 22, 33
+  offset: 1, 0
+  index: 10
+Skeleton Walk
+  rotate: false
+  xy: 47, 35
+  size: 18, 32
+  orig: 22, 33
+  offset: 1, 0
+  index: 0
+Skeleton Walk
+  rotate: false
+  xy: 1, 1
+  size: 18, 32
+  orig: 22, 33
+  offset: 1, 0
+  index: 1
+Skeleton Walk
+  rotate: false
+  xy: 21, 1
+  size: 18, 32
+  orig: 22, 33
+  offset: 2, 0
+  index: 11
+Skeleton Walk
+  rotate: false
+  xy: 41, 1
+  size: 18, 32
+  orig: 22, 33
+  offset: 1, 0
+  index: 2
+Skeleton Walk
+  rotate: false
+  xy: 61, 1
+  size: 17, 32
+  orig: 22, 33
+  offset: 2, 0
+  index: 12

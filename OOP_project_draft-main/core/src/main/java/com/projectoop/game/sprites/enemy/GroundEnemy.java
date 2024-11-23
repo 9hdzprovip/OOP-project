@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.projectoop.game.GameWorld;
 import com.projectoop.game.scences.EnemyHealthBar;
 import com.projectoop.game.screens.PlayScreen;
+import com.projectoop.game.sprites.Knight;
 import com.projectoop.game.tools.AudioManager;
 
 public abstract class GroundEnemy extends Enemy{
@@ -43,10 +44,11 @@ public abstract class GroundEnemy extends Enemy{
     protected float addYtoAnim;
     // test
     private boolean hasAttacked; // Đánh dấu trạng thái tấn công
-    private float attackDamage = 30;  //
+    private float attackDamage = 50;  //
     public float getAttackDamage() {
         return attackDamage;
     }
+    public Knight knight;
 
     public GroundEnemy(PlayScreen screen, float x, float y, float addY, float scale) {
         super(screen, x, y);
@@ -93,13 +95,14 @@ public abstract class GroundEnemy extends Enemy{
 //        CircleShape shape = new CircleShape();
 //        shape.setRadius(9/GameWorld.PPM);
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(9 / GameWorld.PPM, 20 / GameWorld.PPM);
+        shape.setAsBox(9/ GameWorld.PPM, 9 / GameWorld.PPM);
         //type bit
         fdef.filter.categoryBits = GameWorld.ENEMY_BIT;
         //Collision bit list
         fdef.filter.maskBits = GameWorld.GROUND_BIT |
             GameWorld.TRAP_BIT | GameWorld.CHEST_BIT |
-            GameWorld.PILAR_BIT | GameWorld.KNIGHT_BIT | GameWorld.ARROW_BIT| GameWorld.OBJECT_BIT;
+            GameWorld.KNIGHT_BIT | GameWorld.ARROW_BIT| GameWorld.OBJECT_BIT| GameWorld.KNIGHT_SWORD_LEFT
+        | GameWorld.KNIGHT_SWORD_RIGHT;
         fdef.shape = shape;
         b2body.createFixture(fdef).setUserData(this);
     }
@@ -117,6 +120,27 @@ public abstract class GroundEnemy extends Enemy{
         }
 
     }
+    public boolean isAttack(){
+        return currentState == State.ATTACKING;
+    }
+    //KNIGHT_BIT | ENEMY_BIT
+    public boolean isInRangeAttack(){
+        if (!screen.getPlayer().isAttack()) return false;
+        //player on the left-side of enemy
+        float check_dis = this.b2body.getPosition().x - screen.getPlayer().b2body.getPosition().x;
+        if (check_dis < 30/GameWorld.PPM && check_dis > 0){
+            //System.out.println("1");
+            return true;
+        }
+        //right-side
+        else if (-check_dis < 30/GameWorld.PPM && -check_dis > 0){
+            //System.out.println("2");
+            return true;
+        }
+        //System.out.println("non");
+        return false;
+    }
+
 
     @Override
     public void destroy() {
@@ -128,6 +152,9 @@ public abstract class GroundEnemy extends Enemy{
         attackSound.play();
         hasAttacked= true;
         isAttack = true;
+        // Lấy sát thương từ Knight, có thể là sát thương bình thường hoặc tăng gấp đôi khi là người khổng lồ
+        float attackDamage = screen.getPlayer().getAttackDamage();
+        System.out.println("Knight attacks with damage: " + attackDamage);
         System.out.println("Chem chem chem");
         screen.getPlayer().hurtingCallBack();
     }
@@ -136,8 +163,13 @@ public abstract class GroundEnemy extends Enemy{
     public void hurtingCallBack() {
         hurtSound.play();
         hurtKnockBack();
-        takeDamage(20);
-        if (currentHealth <= 0) isDie = true;
+        //takeDamage(20);
+        // Gây sát thương cho enemy
+        float damage = screen.getPlayer().getAttackDamage();  // Lấy sát thương từ Knight
+        takeDamage(damage);
+
+
+        if (currentHealth <= 0)  isDie= true;
         isHurt = true;
     }
 
@@ -189,7 +221,7 @@ public abstract class GroundEnemy extends Enemy{
             return State.DEAD;
         }
 
-        if (isHurt){
+        if (isHurt|| isInRangeAttack()){
             isHurt = false;
             isHurting = true;
             this.velocity = new Vector2(0, 0);

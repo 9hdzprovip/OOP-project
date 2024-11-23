@@ -11,10 +11,10 @@ public class Skeleton extends GroundEnemy{
 
     @Override
     protected void prepareAnimation() {
-        atlasWalking = new TextureAtlas("E_Skeleton/Pack/Walk.pack");
-        atlasAttacking = new TextureAtlas("E_Skeleton/Pack/Attack.pack");
-        atlasDieing = new TextureAtlas("E_Skeleton/Pack/Death.pack");
-        atlasHurting = new TextureAtlas("E_Skeleton/Pack/Hurt.pack");
+        atlasWalking = new TextureAtlas("SkeletonV2/Run.pack");
+        atlasAttacking = new TextureAtlas("SkeletonV2/Attack.pack");
+        atlasDieing = new TextureAtlas("SkeletonV2/Die.pack");
+        atlasHurting = new TextureAtlas("SkeletonV2/Hurt.pack");
 
         walkAnimation = new Animation<TextureRegion>(0.3f, atlasWalking.getRegions());
         attackAnimation = new Animation<TextureRegion>(0.3f, atlasAttacking.getRegions());

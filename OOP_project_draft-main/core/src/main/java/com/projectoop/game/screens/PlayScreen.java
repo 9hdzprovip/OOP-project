@@ -142,6 +142,10 @@ public class PlayScreen implements Screen {
             if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2) {
                 player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
             }
+            // test
+            if (Gdx.input.isKeyJustPressed(Input.Keys.O)) {
+                player.transformToGiant(); // Gọi phương thức biến khổng lồ
+            }
 
             //attacking code
             if (Gdx.input.isKeyPressed(Input.Keys.J)){

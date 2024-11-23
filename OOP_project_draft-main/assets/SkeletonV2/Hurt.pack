@@ -1,0 +1,61 @@
+
+Hurt.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Skeleton Hit
+  rotate: false
+  xy: 1, 103
+  size: 24, 32
+  orig: 30, 32
+  offset: 0, 0
+  index: 3
+Skeleton Hit
+  rotate: false
+  xy: 1, 69
+  size: 24, 32
+  orig: 30, 32
+  offset: 6, 0
+  index: 5
+Skeleton Hit
+  rotate: false
+  xy: 27, 103
+  size: 23, 32
+  orig: 30, 32
+  offset: 2, 0
+  index: 2
+Skeleton Hit
+  rotate: false
+  xy: 1, 35
+  size: 23, 32
+  orig: 30, 32
+  offset: 3, 0
+  index: 4
+Skeleton Hit
+  rotate: false
+  xy: 27, 69
+  size: 23, 32
+  orig: 30, 32
+  offset: 6, 0
+  index: 6
+Skeleton Hit
+  rotate: false
+  xy: 1, 1
+  size: 22, 32
+  orig: 30, 32
+  offset: 6, 0
+  index: 0
+Skeleton Hit
+  rotate: false
+  xy: 1, 1
+  size: 22, 32
+  orig: 30, 32
+  offset: 6, 0
+  index: 7
+Skeleton Hit
+  rotate: false
+  xy: 26, 35
+  size: 22, 32
+  orig: 30, 32
+  offset: 6, 0
+  index: 1

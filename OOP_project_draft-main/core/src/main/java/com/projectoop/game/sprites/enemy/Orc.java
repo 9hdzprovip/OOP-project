@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.projectoop.game.screens.PlayScreen;
+
+
 public class Orc extends GroundEnemy{
 
     public Orc(PlayScreen screen, float x, float y) {
